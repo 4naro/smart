@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Welcome in Choose Smart</h1>
+
+    <form>
+        <div>name
+            <input name="a" placeholder="put your name here"> <span></span>
+        </div>
+        <div>surname
+            <input surname="b" placeholder="put your surname here"> <span></span>
+        </div>
+        <div>age
+            <input type="number" name="age" value="age"> <span></span>
+        </div>
+        <div>
+            <input type="password" name="pwd" required> <span>insert password</span>
+        </div>
+
+        <div>
+            <button><a href="mappa.html">Enter</a></button>
+            <button><a href="index.html">Back</a></button>
+        </div>
+    </form>
+</body>
+
+</html>
