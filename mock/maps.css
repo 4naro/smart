@@ -1,0 +1,22 @@
+.container {
+    display: flex;
+    align-items: center;
+}
+
+.text {
+    margin-right: 10px;
+}
+
+iframe {
+    height: 3000px;
+    position: center;
+    width: 7000%;
+}
+
+.centered-text {
+    text-align: center;
+}
+
+.right-aligned-text {
+    text-align: right;
+}
