@@ -4,6 +4,12 @@ form {
     padding: 10px;
 }
 
+#intestazione {
+    text-align: right;
+    font-family: 'Courier New', Courier, monospace;
+    font-style:italic;
+}
+
 form{
     margin: 5px;
     
