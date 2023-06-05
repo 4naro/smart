@@ -8,7 +8,7 @@
             "name": "pg",
             "database": "postgres",
             "username": "postgres",
-            "password": "Ss-22031994"
+            "password": "password"
         },
         {
             "previewLimit": 50,
