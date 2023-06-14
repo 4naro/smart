@@ -6,20 +6,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Space Available</title>
-    <link rel="stylesheet" href="css/welcome.css">
+    <link rel="stylesheet" href="css/formSpaceAv.css">
 </head>
 
 <body>
-    <header id="intestazione">Choose Smart</header>
+    <div class="logo"><img src="img/logodef.png" width="150" height="100">
+    </div>
+    <div>
+        <button class="back"><a href = "firstSignIn.html" class="href">Back</a></button>
+        </div>
 
     <h1>Space Available</h1>
     <form>
-        <div>
-            <input address="a" placeholder="put your address here.."> <span>E-mail</span>
+        <div><span>Email</span>
+            <input email="email" placeholder="put your e-mail here..">
         </div>
-        <div>
-            <input type="name" name="name" required placeholder="insert name.."> <span>Name</span>
+        <div><span>Password</span>
+            <input type="password" name="pwd" required placeholder="insert password here..">
         </div>
+        <div><span>Name</span>
+            <input name="name" placeholder="put your place's name here..">
+        </div>
+         <div><span>Address</span>
+            <input address="address" placeholder="put your address here..">
+        </div>
+        <div><span>Number</span>
+            <input number="number" placeholder="put your number here..">
+        </div>
+
 
         <div>
             <span>Period</span>

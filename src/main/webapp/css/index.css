@@ -1,19 +1,6 @@
 body {
+    background: linear-gradient(45deg, #aae1ef, #bfe88a);
     font-family: 'Montserrat', sans-serif;
-}
-
-.back {
-    position: absolute;
-    margin-left: 50px;
-    margin-top: 200px;
-    border-radius: 100%;
-    border: none;
-}
-
-h1 {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #182c36;
-    text-align: center;
 }
 
 .logo { text-align: left;
@@ -22,22 +9,28 @@ h1 {
     height: 30px;
 }
 
-form {
-    text-align: center;
-    margin-left: 40%;
-    background: linear-gradient(45deg, #aae1ef, #bfe88a);
-    opacity: 70%;
-    padding: 3em;
-    height: 320px;
-    width: 250px;
-    border-radius: 20px;
+h1 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #182c36;
+    margin-top: 20em;
 }
 
-.href {color: white;}
+div.blu {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    margin-left: 50%;
+    background-color: #182c36;
+}
+
+h1 {
+    margin-top: 300px;
+    font-size: 100px;
+    margin-left: 40px;
+}
 
 button {
     background:#182c36;
-    opacity: 70%;
     width: 80px;
     padding: 1em;
     margin-top: 3em;
@@ -47,6 +40,19 @@ button {
     border-radius: 5000px;
     font-family: Montserrat, sans-serif;
 }
+
+form {
+    margin-left: 70px;
+    background:white;
+    opacity: 70%;
+    padding: 3em;
+    height: 320px;
+    width: 250px;
+    border-radius: 20px;
+}
+
+
+.href {color: white;}
 
 input {
     background: transparent;
