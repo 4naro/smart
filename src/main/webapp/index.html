@@ -1,13 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<title>Smart</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/index.css">
 </head>
+
 <body>
-    <h1>Smart</h1>
-    <p>
-        <a href="hello">Hello!</a>
-    <p>
+    <div class="logo"><img src="img/logodef.png" width="150" height="100">
+    </div>
+    <h1> Choose Smart </h1>
+    <div class="blu"><img src="img/serpente.png"></div>
+    </div>
+    <form>
+        <div>
+            <input name="email" required placeholder="put your e-mail here">
+        </div>
+        <div>
+            <input type="password" name="pwd" required placeholder="put your password here">
+        </div>
+        <div>
+            <input type="hidden" name="invisible" value="notShowed">
+        </div>
+        <div>
+            <input type="radio" id="user" name="login"  required value="user">
+            <label for="user">USER</label><br>
+            <input type="radio" id="place" name="login" required value="place">
+            <label for="place">PLACE</label><br>
+        </div>
+        <div>
+            <button><a href="formBooking.html" class="href">Login</a></button>
+        </div>
+    </form>
+
+
+    <button><a href="firstSignIn.html" class="href">Sign in</a></button>
+
 </body>
+
 </html>

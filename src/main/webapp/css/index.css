@@ -3,9 +3,16 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
+.logo { text-align: left;
+    margin-left: 20px;
+    width: 30px;
+    height: 30px;
+}
+
 h1 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #182c36;
+    margin-top: 20em;
 }
 
 div.blu {
@@ -22,35 +29,30 @@ h1 {
     margin-left: 40px;
 }
 
+button {
+    background:#182c36;
+    width: 80px;
+    padding: 1em;
+    margin-top: 3em;
+    margin-bottom: 2em;
+    margin-left: 6em;
+    border: none;
+    border-radius: 5000px;
+    font-family: Montserrat, sans-serif;
+}
+
 form {
-    background: white;
+    margin-left: 70px;
+    background:white;
+    opacity: 70%;
     padding: 3em;
     height: 320px;
+    width: 250px;
     border-radius: 20px;
-    border-left: 1px solid white;
-    border-top: 1px solid white;
-    backdrop-filter: blur(10px);
-    box-shadow: 2px 2px 40px 6px rgba(0, 0, 0, 0.2);
-    transition: all 0.2s ease-in-out;
 }
 
 
-button {
-    background: transparent;
-    width: 70px;
-    padding: 1em;
-    margin-bottom: 2em;
-    border: none;
-    border-left: 1px solid white;
-    border-top: 1px solid white;
-    border-radius: 5000px;
-    backdrop-filter: blur(5px);
-    box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.2);
-    font-family: Montserrat, sans-serif;
-    font-weight: 500;
-    transition: all 0.2s ease-in-out;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-}
+.href {color: white;}
 
 input {
     background: transparent;
@@ -58,14 +60,9 @@ input {
     padding: 1em;
     margin-bottom: 2em;
     border: none;
-    border-left: 1px solid white;
-    border-top: 1px solid white;
     border-radius: 5000px;
     backdrop-filter: blur(5px);
     box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.2);
-    color: #fff;
+    color: #182c36;
     font-family: Montserrat, sans-serif;
-    font-weight: 500;
-    transition: all 0.2s ease-in-out;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }

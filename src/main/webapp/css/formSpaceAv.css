@@ -1,4 +1,20 @@
-body {
+datalist {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    writing-mode: vertical-lr;
+    width: 200px;
+  }
+  
+  option {
+    padding: 0;
+  }
+  
+  input[type="range"] {
+    width: 200px;
+    margin: 0;
+  }
+  body {
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -22,13 +38,19 @@ h1 {
     height: 30px;
 }
 
+span {
+  font-size: 12px;
+    text-align: left;
+  }
+
 form {
-    text-align: center;
+   font-size: 12px;
+    text-align: left;
     margin-left: 40%;
     background: linear-gradient(45deg, #aae1ef, #bfe88a);
     opacity: 70%;
     padding: 3em;
-    height: 320px;
+    height: 720px;
     width: 250px;
     border-radius: 20px;
 }
