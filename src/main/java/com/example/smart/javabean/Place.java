@@ -3,13 +3,11 @@ package com.example.smart.javabean;
 public class Place {
 
 	private int id;
-	private String name;
-	private String address;
-	private String period;
 	private String email;
 	private String password;
-	private int range;
-	private int user;
+	private String name;
+	private String address;
+	private String phone;
 
 	public Place() {
 
@@ -26,14 +24,16 @@ public class Place {
 		this.password = password;
 	}
 
-	public Place(int id, String name, String address, String period, int range, int user) {
+
+	public Place(int id, String email, String password, String name, String address, String phone) {
+		super();
+		this.id = id;
+		this.email = email;
+		this.password = password;
 		this.name = name;
 		this.address = address;
-		this.period = period;
-		this.range = range;
-		this.user = user;
+		this.phone = phone;
 	}
-
 
 	public Place(String email, String password) {
 		super();
@@ -74,34 +74,28 @@ public class Place {
 		this.email = email;
 	}
 
-	public String getPeriod() {
-		return period;
+
+	public String getPhone() {
+		return phone;
 	}
 
-	public void setPeriod(String period) {
-		this.period = period;
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	
+	
+
+	public String getPassword() {
+		return password;
 	}
 
-	public int getRange() {
-		return range;
-	}
-
-	public void setRange(int range) {
-		this.range = range;
-	}
-
-	public int getUser() {
-		return user;
-	}
-
-	public void setUser(int user) {
-		this.user = user;
-	}
 
 	@Override
 	public String toString() {
-		return "Place [name=" + name + ", address=" + address + ", period=" + period + ", email=" + email
-				+ ", password=" + password + ", range=" + range + ", user=" + user + "]";
+		return "Place [id=" + id + ", email=" + email + ", password=" + password + ", name=" + name + ", address="
+				+ address + ", phone=" + phone + "]";
 	}
+	
+	
 
 }
