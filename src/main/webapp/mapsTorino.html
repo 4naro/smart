@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <title>Maps</title>
+  <link rel="stylesheet" href="css/maps.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="right-aligned-text">
+    <img src="img/logodef.png" width="150" height="100">
+  </div>
+  <h2>Welcome back!</h2>
+  <h1>Choose your place</h1>
+
+
+  <img src="img/Turingnmaps.jpg" style="height: 600px; width: 100%;">
+  <h1>Places in Turin</h1><br><br>
+	<div class="container">
+		<div class="carousel">
+			<div class="prev">&lt;</div>
+			<div class="next">&gt;</div>
+			<ul>
+		<img src="img/toirno1.jpg">
+    <img src="img/Comala1.jpg">
+    <img src="img/Comala2.jpg">
+
+			</ul>
+		</div>
+		<div class="carousel">
+			<div class="prev">&lt;</div>
+			<div class="next">&gt;</div>
+			<ul>
+        <img src="img/torino2.jpg">
+        <img src="img/miagola1.jpg">
+        <img src="img/miagola2.jpg">
+    
+			</ul>
+		</div>
+		<div class="carousel">
+			<div class="prev">&lt;</div>
+			<div class="next">&gt;</div>
+			<ul>
+        <img src="img/torino4.jpg">
+        <img src="img/exki1.jpg">
+        <img src="img/exki2.jpg">
+    
+			</ul>
+		</div>
+		<div class="carousel">
+			<div class="prev">&lt;</div>
+			<div class="next">&gt;</div>
+			<ul>
+        <img src="img/torino5.jpg">
+        <img src="img/panche1.jpg">
+        <img src="img/panche2.jpg">
+    
+			</ul>
+		</div>
+	</div>
+
+	<script>
+		const carousels = document.querySelectorAll('.carousel');
+
+		carousels.forEach(carousel => {
+			const prevButton = carousel.querySelector('.prev');
+			const nextButton = carousel.querySelector('.next');
+			const slideList = carousel.querySelector('ul');
+
+			let currentSlide = 0;
+			const slideWidth = carousel.offsetWidth;
+
+			prevButton.addEventListener('click', () => {
+				if (currentSlide > 0) {
+					currentSlide--;
+					slideList.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+				}
+			});
+
+			nextButton.addEventListener('click', () => {
+				if (currentSlide < slideList.children.length - 1) {
+					currentSlide++;
+					slideList.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+				}
+			});
+		});
+	</script>
+</body>
+
+</html>

@@ -1,22 +1,87 @@
+h1 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #182c36;
+    text-align: center;
+}
+
 .container {
     display: flex;
     align-items: center;
 }
 
-.text {
-    margin-right: 10px;
-}
-
-iframe {
-    height: 3000px;
-    position: center;
-    width: 7000%;
-}
-
-.centered-text {
+h2 {
     text-align: center;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #182c36;
+        text-align: center;
+    
 }
 
-.right-aligned-text {
-    text-align: right;
+.carosello {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+  }
+
+  * {
+    box-sizing: border-box}
+  .slide1, .slide2 {
+    display: none}
+  img {
+    vertical-align: middle;
+  }
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
+.carousel {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border: 1px solid black;
+}
+.carousel ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 800px;
+    height: 200px;
+    display: flex;
+    transition: transform 0.5s;
+}
+.carousel li {
+    flex: 1 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3em;
+}
+.carousel .prev, .carousel .next {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 60px;
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: opacity 0.5s;
+}
+.carousel .prev:hover, .carousel .next:hover {
+    opacity: 1;
+}
+.carousel .prev {
+    left: 0;
+}
+.carousel .next {
+    right: 0;
+}
+
+p {margin-top: 300px;}
