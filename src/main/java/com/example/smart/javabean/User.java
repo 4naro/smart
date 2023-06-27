@@ -8,6 +8,8 @@ public class User {
 
 	// Data members: inserire colonne tab User
 	private int id;
+	private String firstName;
+	private String lastName;
 	private String email;
 	private String password;
 
@@ -16,15 +18,20 @@ public class User {
 	}
 
 	// costruttore canonico
-	public User(int id,String email, String password) {
-		this.id = id;
-		this.email = email;
-		this.password = password;
-	}
+
 
 	// Getter and Setter
 	public int getId() {
 		return id;
+	}
+
+	public User(int id, String firstName, String lastName, String email, String password) {
+		super();
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.password = password;
 	}
 
 	public void setId(int id) {
@@ -46,13 +53,33 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+
+	public String getfirstName() {
+		return firstName;
+	}
+
+	public void setFirst_name(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getlastName() {
+		return lastName;
+	}
+
+	public void setLast_name(String lastName) {
+		this.lastName = lastName;
+	}
+
+
+
+	// comodo se sappiamo di voler mettere i nostri Users in Hash Set e Hash Map
 
 	@Override
 	public String toString() {
-		return "User [email=" + email + ", id=" + id + "]";
+		return "User [id=" + id + ", first_name=" + firstName + ", last_name=" + lastName + ", email=" + email
+				+ ", password=" + password + "]";
 	}
-
-	// comodo se sappiamo di voler mettere i nostri Users in Hash Set e Hash Map
 
 	@Override
 	public int hashCode() {

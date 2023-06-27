@@ -8,11 +8,24 @@ public class Place {
 	private String name;
 	private String address;
 	private String phone;
+	private int people;
 
 	public Place() {
 
 	}
 
+	
+	public Place(int id, String email, String password, String name, String address, String phone, int people) {
+		super();
+		this.id = id;
+		this.email = email;
+		this.password = password;
+		this.name = name;
+		this.address = address;
+		this.phone = phone;
+		this.people = people;
+	}
+	
 	public Place(int id) {
 		this.id = id;
 	}
@@ -22,17 +35,6 @@ public class Place {
 		this.id = id;
 		this.email = email;
 		this.password = password;
-	}
-
-
-	public Place(int id, String email, String password, String name, String address, String phone) {
-		super();
-		this.id = id;
-		this.email = email;
-		this.password = password;
-		this.name = name;
-		this.address = address;
-		this.phone = phone;
 	}
 
 	public Place(String email, String password) {
@@ -48,7 +50,7 @@ public class Place {
 	public void setId(int id) {
 		this.id = id;
 	}
-	
+
 	public String getName() {
 		return name;
 	}
@@ -64,7 +66,6 @@ public class Place {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	
 
 	public String getEmail() {
 		return email;
@@ -74,7 +75,6 @@ public class Place {
 		this.email = email;
 	}
 
-
 	public String getPhone() {
 		return phone;
 	}
@@ -82,20 +82,27 @@ public class Place {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	
-	
 
 	public String getPassword() {
 		return password;
 	}
 
+	public int getPeople() {
+		return people;
+	}
+
+	public void setPeople(int people) {
+		this.people = people;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
 	@Override
 	public String toString() {
 		return "Place [id=" + id + ", email=" + email + ", password=" + password + ", name=" + name + ", address="
-				+ address + ", phone=" + phone + "]";
+				+ address + ", phone=" + phone + ", people=" + people + "]";
 	}
-	
-	
 
 }

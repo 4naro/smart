@@ -16,10 +16,10 @@ import com.example.smart.javabean.User;
 public class UserDao implements AutoCloseable {
 	private static final String GET_USER_BY_EMAIL_AND_PASSWORD = """
 			SELECT USER_ID, EMAIL
-			FROM USER
+			FROM EVERYBODY
 			WHERE EMAIL = ? AND PASSWORD = ?""";
 	private static final String INSERT_USER = """
-			INSERT INTO USER (EMAIL, PASSWORD) VALUES (?, ?)
+			INSERT INTO USER (FIRST_NAME, LAST_NAME, EMAIL, PASSWORD) VALUES (?, ?, ?, ?)
 			""";
 
 	private static final Logger log = LogManager.getLogger(UserDao.class);
@@ -45,7 +45,7 @@ public class UserDao implements AutoCloseable {
 			try (ResultSet rs = stmt.executeQuery()) {
 				if (rs.next()) {// se c'è una riga 'email' + password allora avrò la riga corrispondente
 
-					return new User(rs.getInt(1), rs.getString(2), rs.getString(3)); // creami al volo uno User e
+					return new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5)); // creami al volo uno User e
 																						// ricordalo; qui
 					// abbiamo
 					// le colonne in ordine
