@@ -1,8 +1,9 @@
-drop table if exists type_everybody;
-drop table if exists everybody;
 drop table if exists booking;
 drop table if exists place;
 drop table if exists user_;
+drop table if exists everybody;
+drop table if exists type_everybody;
+
 
 create table type_everybody (
 type_id serial primary key,
