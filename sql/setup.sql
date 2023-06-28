@@ -53,11 +53,11 @@ create table place (
      foreign key (everybody_id) references everybody (everybody_id)
 );
 -- RIVEDERE
-insert into place (name, address, phone, people, everybody_id) values ('Roxy Bar', 'xxx', '1234567890', 20);
-insert into place (name, address, phone, people, everybody_id) values ('Bar Mario', 'yyy', '1234567890', 20);
-insert into place (name, address, phone, people, everybody_id) values ('Area Paperino', 'zzz', '1234567890', 20);
-insert into place (name, address, phone, people, everybody_id) values ('Community L’isola che non c’è', 'www', '1234567890', 20);
-insert into place (name, address, phone, people, everybody_id) values ('Area 51', 'jjj', '1234567890', 20);
+insert into place (name, address, phone, people) values ('Roxy Bar', 'xxx', '1234567890', 20);
+insert into place (name, address, phone, people) values ('Bar Mario', 'yyy', '1234567890', 20);
+insert into place (name, address, phone, people) values ('Area Paperino', 'zzz', '1234567890', 20);
+insert into place (name, address, phone, people) values ('Community L’isola che non c’è', 'www', '1234567890', 20);
+insert into place (name, address, phone, people) values ('Area 51', 'jjj', '1234567890', 20);
 
 create table booking (
     booking_id serial primary key,
