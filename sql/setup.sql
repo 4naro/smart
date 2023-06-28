@@ -4,6 +4,26 @@ drop table if exists booking;
 drop table if exists place;
 drop table if exists user_;
 
+create table type_everybody (
+type_id serial primary key,
+type varchar -- U & P
+);
+
+insert into type_everybody (type) values ('User');
+insert into type_everybody (type) values ('Place');
+
+
+create table everybody (
+    everybody_id serial primary key,      
+    email varchar (30) UNIQUE NOT NULL,
+    password varchar (30) NOT NULL,
+    type_id integer,
+
+    foreign key (type_id) references type_everybody (type_id)
+);
+
+insert into everybody (email, password) values ('andreachiarello@gmail.com', 'password');
+insert into everybody (email, password) values ('silviatarsitano@gmail.com', 'password');
 
 
 create table user_ (
@@ -16,8 +36,8 @@ create table user_ (
     );
 
 -- RIVEDERE
-insert into user_ (first_name, last_name, everybody_id) values ('Claudia', 'Fornaro');
-insert into user_ (email, password) values ('Alessandra', 'Tutino');
+insert into user_ (first_name, last_name) values ('Claudia', 'Fornaro');
+insert into user_ (first_name, last_name) values ('Alessandra', 'Tutino');
 --insert into user_ (email, password) values ('andreachiarello@gmail.com', 'password');
 --insert into user_ (email, password) values ('fabrizialorusso@gmail.com', 'password');
 --insert into user_ (email, password) values ('silviatarsitano@gmail.com', 'password');
@@ -58,23 +78,8 @@ insert into booking (user_id, place_id, res_in, res_out) values (2, 2, '2023-07-
 --insert into booking (user_id, place_id, res_in, res_out) values (5, 5, '2023-07-01 15:00', '2023-07-01 18:00');
 
 
-create table everybody (
-    everybody_id serial primary key,      
-    email varchar (30) UNIQUE NOT NULL,
-    password varchar (30) NOT NULL,
-    type_id integer,
-
-    foreign key (type_id) references type_everybody (type_id)
-);
 
 
-create table type_everybody (
-type_id serial primary key,
-type varchar -- U & P
-);
-
-insert into type_everybody (type) values ('User');
-insert into type_everybody (type) values ('Place');
 
 
 
