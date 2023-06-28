@@ -12,8 +12,15 @@ import org.apache.logging.log4j.Logger;
 
 import com.example.smart.javabean.Everybody;
 import com.example.smart.javabean.EverybodyType;
+import com.example.smart.javabean.Place;
+import com.example.smart.javabean.User;
 
 public class EverybodyDao implements AutoCloseable {
+	
+	private static final String GET_PK= """
+			SELECT EVERYBODY_ID
+			FROM EVERYBODY
+			WHERE EMAIL = ? """;
 	private static final String GET_EMAIL_AND_PASSWORD = """
 			SELECT EVERYBODY_ID, EMAIL, PASSWORD, TYPE_ID
 			FROM EVERYBODY
@@ -29,7 +36,7 @@ public class EverybodyDao implements AutoCloseable {
 			WHERE EMAIL = ? AND PASSWORD = ?
 			""";
 	private static final String INSERT_PLACE = """
-			  INSERT INTO PLACE (EMAIL, PASSWORD, NAME, ADDRESS, PHONE, PEOPLE)VALUES (?, ?, ?, ?, ?, ?)
+			  INSERT INTO PLACE (EMAIL, PASSWORD, NAME, ADDRESS, PHONE, PEOPLE, EVERYBODY_ID)VALUES (?, ?, ?, ?, ?, ?)
 			""";
 
 	private static final Logger log = LogManager.getLogger(PlaceDao.class);
@@ -66,17 +73,29 @@ public class EverybodyDao implements AutoCloseable {
 		}
 	}
 
-	public Everybody addUser(int id,String firstName, String lastName, String email, String password, int type_id) {
+	public int getPK(String email) { //ritorna PK dell'everybody che ha quell'email 
 
-		try {
-			connection.setAutoCommit(false); // potrebbe tirare ecc.
+		try (PreparedStatement stmt = connection.prepareStatement(GET_PK)) { //
+			stmt.setString(1, email);
+			try (ResultSet rs = stmt.executeQuery()) {
+				if (rs.next()) {
+				
+					return rs.getInt(1);
+				} else {
+					return 0;
+				}
+			}
 		} catch (SQLException ex) {
 			throw new IllegalStateException(ex);
 		}
+	}
+
+	private Everybody addEverybody(Everybody everybody) {
 
 		try (PreparedStatement stmt = connection.prepareStatement(INSERT_IN_EVERYBODY)) { //
-			stmt.setString(1, email);
-			stmt.setString(2, password);
+			stmt.setString(1, everybody.getEmail());
+			stmt.setString(2, everybody.getPassword());
+			stmt.setInt(3, everybody.getType().ordinal());
 			stmt.executeUpdate();
 
 		} catch (SQLException ex) {
@@ -87,11 +106,26 @@ public class EverybodyDao implements AutoCloseable {
 			}
 			throw new IllegalStateException(ex);
 		}
-		Everybody everybody = get(email, password);
+		int id = getPK(everybody.getEmail());
+		everybody.setId(id);
+		return everybody;
+	}
+	
 
+	public Everybody addUser(User user) {
+
+		try {
+			connection.setAutoCommit(false); // potrebbe tirare ecc.
+		} catch (SQLException ex) {
+			throw new IllegalStateException(ex);
+		}
+
+		Everybody everybody = new Everybody(user.getEmail(), user.getPassword(), EverybodyType.USER);
+		addEverybody(everybody);
+		
 		try (PreparedStatement stmt = connection.prepareStatement(INSERT_USER)) { //
-			stmt.setString(1, firstName);
-			stmt.setString(2, lastName);
+			stmt.setString(1, user.getfirstName());
+			stmt.setString(2, user.getlastName());
 			stmt.setInt(3, everybody.getId());
 			stmt.executeUpdate();
 
@@ -103,7 +137,38 @@ public class EverybodyDao implements AutoCloseable {
 			}
 			throw new IllegalStateException(ex);
 		}
-		
+		return everybody;
+
+	}
+
+	public Everybody addPlace(Place place) {
+
+		try {
+			connection.setAutoCommit(false); // potrebbe tirare ecc.
+		} catch (SQLException ex) {
+			throw new IllegalStateException(ex);
+		}
+
+		Everybody everybody = new Everybody(place.getEmail(), place.getPassword(), EverybodyType.PLACE);
+		addEverybody(everybody);
+
+		try (PreparedStatement stmt = connection.prepareStatement(INSERT_PLACE)) { //
+			stmt.setString(1, place.getName());
+			stmt.setString(2, place.getAddress());
+			stmt.setString(3, place.getPhone());
+			stmt.setInt(4, place.getPeople());
+			stmt.setInt(5, everybody.getId());
+			stmt.executeUpdate();
+
+		} catch (SQLException ex) {
+			try {
+				connection.rollback();
+			} catch (SQLException e) {
+				log.error("No rollback", e);
+			}
+			throw new IllegalStateException(ex);
+		}
+
 		try {
 			connection.commit();
 		} catch (SQLException e) {
@@ -113,24 +178,6 @@ public class EverybodyDao implements AutoCloseable {
 		}
 
 		return everybody;
-	}
-
-	public Everybody addPlace(int id, String email, String password, int type_id) {
-
-		try (PreparedStatement stmt = connection.prepareStatement(INSERT_PLACE)) { //
-			stmt.setString(1, email);
-			stmt.setString(2, password);
-			try (ResultSet rs = stmt.executeQuery()) {
-				if (rs.next()) {
-					EverybodyType type = rs.getInt(3) == 1 ? EverybodyType.PLACE : EverybodyType.USER;
-					return new Everybody(rs.getInt(1), rs.getString(1), rs.getString(2), type);
-				} else {
-					return null;
-				}
-			}
-		} catch (SQLException ex) {
-			throw new IllegalStateException(ex);
-		}
 	}
 
 	@Override

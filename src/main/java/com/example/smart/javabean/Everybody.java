@@ -17,6 +17,12 @@ public class Everybody {
 		this.type = type;
 	}
 
+	public Everybody(String email, String password, EverybodyType type) {
+		this.email = email;
+		this.password = password;
+		this.type = type;
+	}
+
 	public int getId() {
 		return id;
 	}

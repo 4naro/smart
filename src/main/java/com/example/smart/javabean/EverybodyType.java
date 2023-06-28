@@ -1,5 +1,6 @@
 package com.example.smart.javabean;
 
 public enum EverybodyType {
-	USER, PLACE
+	//UNDEF. per dire che non so quale sia il tipo del mio everybody
+	UNDEFINED, USER, PLACE
 }
