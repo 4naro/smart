@@ -7,8 +7,7 @@ import javax.sql.DataSource;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.example.smart.javabean.Place;
-import com.example.smart.javabean.User;
+import com.example.smart.javabean.Everybody;
 
 import jakarta.annotation.Resource;
 import jakarta.servlet.ServletException;
@@ -21,7 +20,7 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet("/login")
 
 public class Login extends HttpServlet {
-	@Resource(name = "jdbc/smart")
+	@Resource(name = "login/smart")
 	private DataSource ds;
 	private static final Logger log = LogManager.getLogger(Login.class);
 
@@ -30,19 +29,23 @@ public class Login extends HttpServlet {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		String type = request.getParameter("type");
-		LoginSvc svc = new LoginSvc();
+		Identification svc = new Identification(ds);
 
-		if (type.equals("user")) {
-			User user = svc.getUser(ds, email, password);
+		if (type.equals("USER")) {
+			Everybody user = svc.get(email, password);
+			log.trace(user + "logged");
 			request.getRequestDispatcher("formBooking.html").forward(request, response);
-		} else {
-			Place place = svc.getPlace(ds, email, password);
-			request.getRequestDispatcher("formSpaceAv.html").forward(request, response);
+		} else if (type.equals("PLACE")){ 
+			Everybody place = svc.get(email, password); 
+			log.trace(place + "logged");
+			request.getRequestDispatcher("link al profilo del locale").forward(request, response);
 		}
 
+		// i dati ottenuto con tutto il meccanismo implementato nella service vengono
+		// trasformati in attributi all'interno della request, inoltre si chiama la JSP.
 		// login fallisce
 		request.setAttribute("message", "unrecognized user");
-		request.getRequestDispatcher("home.html").forward(request, response);
+		request.getRequestDispatcher("index.html").forward(request, response);
 	}
 
 }

@@ -1,3 +1,25 @@
-h1{
+
+h1{ 
+    margin-top: 250px;
+    color: rgb(105, 195, 67);
+    border-color: black;
+    font-family: 'Times New Roman';
     text-align: center;
 }
+
+.logo { text-align: left;
+    margin-left: 10px;
+    width: 10px;
+    height: 30px;
+}
+.back {
+    position: absolute;
+    margin-left: 30px;
+    margin-top: 200px;
+    border-radius: 100%;
+    border: 50px;  
+}
+
+
+
+

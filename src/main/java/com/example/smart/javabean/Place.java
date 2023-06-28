@@ -3,18 +3,29 @@ package com.example.smart.javabean;
 public class Place {
 
 	private int id;
-	private String name;
-	private String address;
-	private String period;
 	private String email;
 	private String password;
-	private int range;
-	private int user;
+	private String name;
+	private String address;
+	private String phone;
+	private int people;
 
 	public Place() {
 
 	}
 
+	
+	public Place(int id, String email, String password, String name, String address, String phone, int people) {
+		super();
+		this.id = id;
+		this.email = email;
+		this.password = password;
+		this.name = name;
+		this.address = address;
+		this.phone = phone;
+		this.people = people;
+	}
+	
 	public Place(int id) {
 		this.id = id;
 	}
@@ -25,15 +36,6 @@ public class Place {
 		this.email = email;
 		this.password = password;
 	}
-
-	public Place(int id, String name, String address, String period, int range, int user) {
-		this.name = name;
-		this.address = address;
-		this.period = period;
-		this.range = range;
-		this.user = user;
-	}
-
 
 	public Place(String email, String password) {
 		super();
@@ -48,7 +50,7 @@ public class Place {
 	public void setId(int id) {
 		this.id = id;
 	}
-	
+
 	public String getName() {
 		return name;
 	}
@@ -64,7 +66,6 @@ public class Place {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	
 
 	public String getEmail() {
 		return email;
@@ -74,34 +75,34 @@ public class Place {
 		this.email = email;
 	}
 
-	public String getPeriod() {
-		return period;
+	public String getPhone() {
+		return phone;
 	}
 
-	public void setPeriod(String period) {
-		this.period = period;
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 
-	public int getRange() {
-		return range;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setRange(int range) {
-		this.range = range;
+	public int getPeople() {
+		return people;
 	}
 
-	public int getUser() {
-		return user;
+	public void setPeople(int people) {
+		this.people = people;
 	}
 
-	public void setUser(int user) {
-		this.user = user;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	@Override
 	public String toString() {
-		return "Place [name=" + name + ", address=" + address + ", period=" + period + ", email=" + email
-				+ ", password=" + password + ", range=" + range + ", user=" + user + "]";
+		return "Place [id=" + id + ", email=" + email + ", password=" + password + ", name=" + name + ", address="
+				+ address + ", phone=" + phone + ", people=" + people + "]";
 	}
 
 }
