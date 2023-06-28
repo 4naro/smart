@@ -23,9 +23,10 @@ create table everybody (
     foreign key (type_id) references type_everybody (type_id)
 );
 
-insert into everybody (email, password) values ('andreachiarello@gmail.com', 'password');
-insert into everybody (email, password) values ('silviatarsitano@gmail.com', 'password');
-
+insert into everybody (email, password, type_id) values ('andreachiarello@gmail.com', 'password', 1);
+insert into everybody (email, password, type_id) values ('silviatarsitano@gmail.com', 'password', 1);
+insert into everybody (email, password, type_id) values ('roxybar@gmail.com', 'password', 2);
+insert into everybody (email, password, type_id) values ('barmario@gmail.com', 'password', 2);
 
 create table user_ (
     user_id serial primary key, 
@@ -37,8 +38,8 @@ create table user_ (
     );
 
 -- RIVEDERE
-insert into user_ (first_name, last_name) values ('Claudia', 'Fornaro');
-insert into user_ (first_name, last_name) values ('Alessandra', 'Tutino');
+insert into user_ (first_name, last_name, everybody_id) values ('Andrea', 'Chiarello', 1);
+insert into user_ (first_name, last_name, everybody_id) values ('Silvia', 'Tarsitano', 2);
 --insert into user_ (email, password) values ('andreachiarello@gmail.com', 'password');
 --insert into user_ (email, password) values ('fabrizialorusso@gmail.com', 'password');
 --insert into user_ (email, password) values ('silviatarsitano@gmail.com', 'password');
@@ -54,8 +55,8 @@ create table place (
      foreign key (everybody_id) references everybody (everybody_id)
 );
 -- RIVEDERE
-insert into place (name, address, phone, people) values ('Roxy Bar', 'xxx', '1234567890', 20);
-insert into place (name, address, phone, people) values ('Bar Mario', 'yyy', '1234567890', 20);
+insert into place (name, address, phone, people, everybody_id) values ('Roxy Bar', 'xxx', '1234567890', 20, 3);
+insert into place (name, address, phone, people, everybody_id) values ('Bar Mario', 'yyy', '1234567890', 20, 4);
 insert into place (name, address, phone, people) values ('Area Paperino', 'zzz', '1234567890', 20);
 insert into place (name, address, phone, people) values ('Community L’isola che non c’è', 'www', '1234567890', 20);
 insert into place (name, address, phone, people) values ('Area 51', 'jjj', '1234567890', 20);
