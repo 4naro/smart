@@ -17,7 +17,7 @@ create table user_ (
 
 -- RIVEDERE
 insert into user_ (first_name, last_name, everybody_id) values ('Claudia', 'Fornaro');
---insert into user_ (email, password) values ('alessandratutino@gmail.com', 'password');
+insert into user_ (email, password) values ('Alessandra', 'Tutino');
 --insert into user_ (email, password) values ('andreachiarello@gmail.com', 'password');
 --insert into user_ (email, password) values ('fabrizialorusso@gmail.com', 'password');
 --insert into user_ (email, password) values ('silviatarsitano@gmail.com', 'password');
