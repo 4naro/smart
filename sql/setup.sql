@@ -1,8 +1,9 @@
 drop table if exists booking;
+drop table if exists type_everybody;
+drop table if exists everybody;
 drop table if exists place;
 drop table if exists user_;
-drop table if exists everybody;
-drop table if exists type_everybody;
+
 
 
 create table type_everybody (
@@ -57,9 +58,9 @@ create table place (
 -- RIVEDERE
 insert into place (name, address, phone, people, everybody_id) values ('Roxy Bar', 'xxx', '1234567890', 20, 3);
 insert into place (name, address, phone, people, everybody_id) values ('Bar Mario', 'yyy', '1234567890', 20, 4);
-insert into place (name, address, phone, people) values ('Area Paperino', 'zzz', '1234567890', 20);
-insert into place (name, address, phone, people) values ('Community L’isola che non c’è', 'www', '1234567890', 20);
-insert into place (name, address, phone, people) values ('Area 51', 'jjj', '1234567890', 20);
+--insert into place (name, address, phone, people) values ('Area Paperino', 'zzz', '1234567890', 20);
+--insert into place (name, address, phone, people) values ('Community L’isola che non c’è', 'www', '1234567890', 20);
+--insert into place (name, address, phone, people) values ('Area 51', 'jjj', '1234567890', 20);
 
 create table booking (
     booking_id serial primary key,
